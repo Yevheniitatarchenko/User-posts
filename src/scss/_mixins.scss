@@ -1,0 +1,39 @@
+@mixin basic-flex($direction, $x: none, $y: none) {
+  display: flex;
+  flex-direction: $direction;
+  @if $x != null {
+    justify-content: $x;
+  }
+  @if $y != null {
+    align-items: $y;
+  }
+}
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin site-font($family: null, $size: null, $weight: null) {
+  @if $family == null or $family == default {
+    $family: 'Open Sans';
+  }
+
+  @if $size == null  {
+    $size: inherit;
+  }
+  @if $size == default {
+    $size: 14px;
+  }
+
+  @if $weight == null or $weight == default {
+    $weight: 400;
+  }
+
+  font-family: $family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+}
